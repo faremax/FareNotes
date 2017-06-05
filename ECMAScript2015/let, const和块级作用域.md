@@ -1,4 +1,4 @@
-## let、const和块级作用域
+## let, const和块级作用域
 
 块级作用于对于强类型语言经验的人应该非常好理解, 一言以蔽之：ES5对变量作用于分隔使用了函数(词法作用域), 而ES6使用花括号(块作用域)。
 对于词法作用域在 [javascript函数、作用域链与闭包](http://blog.csdn.net/faremax/article/details/53201809) 中有详细的解释。对于let 和 const声明的变量在花括号的分割下同样会形成作用于链(内部访问外部的, 但外部不能访问内部)。但是花括号对于没有声明直接定义以及用 var 声明的变量没有影响, 这些变量依然遵守词法作用域规则。
@@ -6,10 +6,6 @@
 对于let 和 const 最大的好处就是避免了可能的运行时错误, 不过也有直观的好处：
 
 - 用块(Blocks)替换立即执行函数(IIFEs)
-- 定义循环变量不会外泄
-- 循环定义函数可以不用闭包了
-- 可以放心的在 if 等条件中定义函数
-
 ```js
 //用块(Blocks)替换立即执行函数(IIFEs)
 //ES5
@@ -24,18 +20,7 @@ console.log(food); // Reference Error
 }
 console.log(food); // Reference Error
 ```
-
-```js
-var a = [];
-for(let i = 0; i < 10; i++){
-  a[i] = function(){
-    console.log(i);
-  }
-}
-a[6]();       //这里输出6, 在var定义i的for循环中输出 10
-console.log(i);    //ReferenceError
-```
-
+- 可以放心的在 if 等条件中定义函数
 ```js
 function b(){console.log("outside");}
 function f(){
@@ -45,6 +30,18 @@ function f(){
   b();
 }
 f();   // ES5 中报错："TypeError:b is not a function" 而 ES6 中输出"outside"
+```
+- 定义循环变量不会外泄
+- 循环定义函数可以不用闭包了
+```js
+var a = [];
+for(let i = 0; i < 10; i++){
+  a[i] = function(){
+    console.log(i);
+  }
+}
+a[6]();       //这里输出6, 在var定义i的for循环中输出 10
+console.log(i);    //ReferenceError
 ```
 由此例可以看出 function 定义函数不具有块级作用域。
 
