@@ -11,3 +11,4 @@
 - [字符串类型扩展](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B%E6%89%A9%E5%B1%95.md)
 - [函数的扩展](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A9%E5%B1%95.md)
 - [数组的扩展](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95.md)
+- [二进制数组](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E7%BB%84.md)
