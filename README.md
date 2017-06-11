@@ -1,6 +1,6 @@
 > 个人博客
 
-> 本库为个人博客文章，博客地址 [http://blog,csdn.net/faremax](http://blog.csdn.net/faremax)，欢迎提出建议和指正。
+> 本库为个人博客文章，博客地址 [http://blog.csdn.net/faremax](http://blog.csdn.net/faremax)，欢迎提出建议和指正。
 
 ## ECMAScript 2015
 
@@ -14,4 +14,6 @@
 - [二进制数组](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E7%BB%84.md)
 - [对象的扩展](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95.md)
 - [正则表达式扩展](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%89%A9%E5%B1%95.md)
+- [Symbol 基本类型](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Symbol%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B.md)
+
 
