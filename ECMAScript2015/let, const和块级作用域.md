@@ -1,7 +1,7 @@
 ## let, const和块级作用域
 
 块级作用于对于强类型语言经验的人应该非常好理解, 一言以蔽之：ES5对变量作用于分隔使用了函数(词法作用域), 而ES6使用花括号(块作用域)。
-对于词法作用域在 [javascript函数、作用域链与闭包](http://blog.csdn.net/faremax/article/details/53201809) 中有详细的解释。对于let 和 const声明的变量在花括号的分割下同样会形成作用于链(内部访问外部的, 但外部不能访问内部)。但是花括号对于没有声明直接定义以及用 var 声明的变量没有影响, 这些变量依然遵守词法作用域规则。
+对于词法作用域在 [javascript函数、作用域链与闭包](https://github.com/faremax1992/repoForBlog/blob/master/Javascript/%E5%87%BD%E6%95%B0%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E4%B8%8E%E9%97%AD%E5%8C%85.md) 中有详细的解释。对于let 和 const声明的变量在花括号的分割下同样会形成作用于链(内部访问外部的, 但外部不能访问内部)。但是花括号对于没有声明直接定义以及用 var 声明的变量没有影响, 这些变量依然遵守词法作用域规则。
 
 对于let 和 const 最大的好处就是避免了可能的运行时错误, 不过也有直观的好处：
 
@@ -124,7 +124,7 @@ b = {
   num: 90
 };              //TypeError
 ```
-如果想让非基本变量内部也不可改变, 需要使用 `Object.freeze()` 方法。可以参考：[javascript对象、类与原型链](http://blog.csdn.net/faremax/article/details/53525721)
+如果想让非基本变量内部也不可改变, 需要使用 `Object.freeze()` 方法。可以参考：[javascript对象、类与原型链](https://github.com/faremax1992/repoForBlog/blob/master/Javascript/%E5%AF%B9%E8%B1%A1%E3%80%81%E7%B1%BB%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
 
 - 跨模块常量
 对于跨模块的常量, 可以这样写：
