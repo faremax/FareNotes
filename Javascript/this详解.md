@@ -5,9 +5,9 @@
 - [对象方法中的闭包](#%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84%E9%97%AD%E5%8C%85)
 - [原型中的this](#%E5%8E%9F%E5%9E%8B%E4%B8%AD%E7%9A%84this)
 - [bind call和apply方法](#bind-call%E5%92%8Capply%E6%96%B9%E6%B3%95)
-	- [bind方法](#bind%E6%96%B9%E6%B3%95)
-	- [call方法 和 apply方法](#call%E6%96%B9%E6%B3%95-%E5%92%8C-apply%E6%96%B9%E6%B3%95)
-	- [实例](#%E5%AE%9E%E4%BE%8B)
+  - [bind方法](#bind%E6%96%B9%E6%B3%95)
+  - [call方法 和 apply方法](#call%E6%96%B9%E6%B3%95-%E5%92%8C-apply%E6%96%B9%E6%B3%95)
+  - [实例](#%E5%AE%9E%E4%BE%8B)
 - [箭头函数中的this](#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84this)
 
 <!-- /MarkdownTOC -->
@@ -19,7 +19,7 @@
 
 注意：本文中对**一般函数**和**普通函数**的措辞，这个只是博主个人的说法，由于上下文(context)的解释并不是很容易懂，博主自定义了这2个说法，帮助理解。
 
-###普通函数中的this
+### 普通函数中的this
 ```javasctipt
 function f(){
   console.log(this); //Window
@@ -37,7 +37,7 @@ var b = a.map(function(x){
 同理上面这个函数也没有定义在对象、构造函数或者prototype里，所以得到的依然是Window。
 注意：Array.prototype.map是定义在数组原型中的，但是给map传进去的参数函数就是一个一般函数
 
-###构造函数中的this
+### 构造函数中的this
 ```javasctipt
 function Person(n, a, g){
   this.name = n;
@@ -157,7 +157,7 @@ console.log(o = new Fun("Bob"));   // {name: "Bob"}
 第一个按钮得到Window，而第二个得到input元素！为什么!
 再想想，click函数定义在全局，不在对象上。而`btn.onclick = function(){}`中的函数明显是在btn对象上定义的。
 
-###对象方法中的闭包
+### 对象方法中的闭包
 
 说闭包前先理解一个简单的：
 ```javasctipt
@@ -191,7 +191,7 @@ var o = {
 };
 o.speak();  //Object {name: "Lily", age: 18, gender: "F"}
 ```
-下面做个闭包，为了说明this的值，这里不定义太多变量，如果对闭包和作用域有疑惑可以参看博主的另一篇文章：[作用域链与闭包](http://blog.csdn.net/faremax/article/details/53201809)
+下面做个闭包，为了说明this的值，这里不定义太多变量，如果对闭包和作用域有疑惑可以参看博主的另一篇文章：[作用域链与闭包](https://github.com/faremax1992/repoForBlog/blob/master/Javascript/%E5%87%BD%E6%95%B0%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E4%B8%8E%E9%97%AD%E5%8C%85.md)
 ```javasctipt
 var o = {
   name: "Lily",
@@ -220,7 +220,7 @@ fun(); //Window
 ```
 什么？这里还是Window！o.speak明显是一个对象方法啊！那么问题来了？第10行调用的是谁？是fun函数。那么fun函数怎么定义的？对，fun的定义决定它是一个一般函数。那怎么解决？这个不用解决，没人会试图在对象外获取对象方法，即便是有需要也应该获取对象方法内的闭包。当然，如果你要强行解决它，那就用bind方法吧。
 
-###原型中的this
+### 原型中的this
 什么?原型方法中的this? 看看下面代码就明白了，这个理解起来不会很难
 ```javascript
 function F(){
@@ -237,11 +237,11 @@ console.log(f); //F{test:test}
 ```
 可见，原型中方法里的this.就是一个该构造函数的实例化对象。jQuery中使用的就是这个构造方法。
 
-###bind call和apply方法
+### bind call和apply方法
 
 **这3个方法用来改变调用函数内的this值**
 
-####bind方法
+#### bind方法
 将对象绑定到函数，返回内部this值为绑定对象的函数。
 如果我们不能修改库中对象的方法，我们就不能用$var \_this = this;$的方法改变this值，那么我们换个角度考虑上面的问题：
 
@@ -292,7 +292,7 @@ var Person2 = Person.bind({name:"hello",city:"Beijing"}, "world");
 var p = new Person2(12);
 console.log(p);//Person{name:"world", age:12}
 ```
-####call方法 和 apply方法
+#### call方法 和 apply方法
 这里举几个和上文不一样的例子
 ```
 function Animal(){
@@ -364,7 +364,7 @@ func.apply(func1,[var1,var2,var3,...]);
 ```
 它们的第一个参数都是指定调用该函数的对象，如果为空就是全局对象。后面的时传入该函数的参数，区别在于**使用call时参数逐一传入，而使用apply时参数构成一个数组或类数组对象传入**。
 
-####实例
+#### 实例
 
 例子1：
 ```
@@ -461,7 +461,7 @@ forEach(DOMElementList, function (el) {
 });
 ```
 
-###箭头函数中的this
+### 箭头函数中的this
 
 之所以最后说箭头函数，一方面因为这是ES6中的内容，更重要的时因为箭头函数中的this永远不能被call, bind和apply改变，也就是说箭头函数中的this可不改变，仅仅与其定义的位置有关。
 

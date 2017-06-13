@@ -34,7 +34,7 @@ var jQuery = window.jQuery = window.$ = function(selector){
 };
 ```
 
-修正上述代码中的死循环，我们可以试图返回this，但是this明显是window，不是我们需要的jQuery，利用原型中的this返回构造函数实例化对象的特点(不理解的可以参看[javascript中this详解](http://blog.csdn.net/faremax/article/details/53235837))，我们作以下修改:
+修正上述代码中的死循环，我们可以试图返回this，但是this明显是window，不是我们需要的jQuery，利用原型中的this返回构造函数实例化对象的特点(不理解的可以参看[javascript中this详解](https://github.com/faremax1992/repoForBlog/blob/master/Javascript/this%E8%AF%A6%E8%A7%A3.md)，我们作以下修改:
 ```
 //上述框架中的部分代码
 //由于$('#selector')得到的是一个jQuery对象，尝试直接返回jQuery对象
@@ -294,4 +294,4 @@ jQuery.extend({
 }(window));
 ```
 
-上述代码源码：[github]()
+上述代码源码：[github](https://github.com/faremax1992/repoForBlog/blob/master/Javascript/src/JQStructure.js)

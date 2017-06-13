@@ -52,6 +52,7 @@
 <!-- /MarkdownTOC -->
 
 # css部分
+
 ### 为不同链接添加不同样式
 ```
 a[href^="http"]{
@@ -98,7 +99,7 @@ button:hover {
 background-position: 0 0;
 }
 ```
-###清除浮动
+### 清除浮动
 ```css
 /*方法1*/
 .clear-fix{
@@ -273,7 +274,7 @@ $('.element').slideToggle('slow');
 });
 ```
 
-###简单的手风琴样式
+### 简单的手风琴样式
 ```
 $('#accordion').find('.content').hide();  //关闭全部标签
 $('#accordion').find('.accordion-header').click(function () {
