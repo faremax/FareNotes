@@ -15,14 +15,17 @@
 - [对象的扩展](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95.md)
 - [正则表达式扩展](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%89%A9%E5%B1%95.md)
 - [Symbol 基本类型](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Symbol%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B.md)
+- [Set 与 Map](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Set%20%E4%B8%8E%20Map.md)
 - [Proxy 和 Reflect](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Proxy%20%E5%92%8C%20Reflect.md)
+- [Generator 函数](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Generator%20%E5%87%BD%E6%95%B0.md)
+
 
 ## CSS(3) Magics and Skills
 
 - [CSS 伪类的详解](https://github.com/faremax1992/repoForBlog/blob/master/CSS3/CSS%E4%BC%AA%E7%B1%BB%E7%9A%84%E8%AF%A6%E8%A7%A3.md)
 - [CSS 元素垂直居中方法](https://github.com/faremax1992/repoForBlog/blob/master/CSS3/css%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%B3%95.md)
 - [CSS3 弹性布局和多列布局](https://github.com/faremax1992/repoForBlog/blob/master/CSS3/CSS3%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80%E5%92%8C%E5%A4%9A%E5%88%97%E5%B8%83%E5%B1%80.md)
-- [Macbook Figure](http://htmlpreview.github.io/?https://github.com/faremax1992/repoForBlog/blob/master/css3/mac/mac.html)
+- [Macbook Figure](http://htmlpreview.github.io/?https://github.com/faremax1992/repoForBlog/blob/master/CSS3/mac/mac.html)
 
 ##  Key Points in Javascript
 
