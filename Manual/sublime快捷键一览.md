@@ -118,4 +118,5 @@ mac快捷键 | win/linux快捷键 | 功能描述
 `^M` | `ctrl + M` | 跳转至对应的括号
 
 最后附一张网上找到的图，亲测发现有少数键不同于 Sublime 3：
+
 ![sublime-2-cheat-sheet](img/20170421112209169.png)
