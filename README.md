@@ -18,7 +18,8 @@
 - [Set 与 Map](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Set%20%E4%B8%8E%20Map.md)
 - [Proxy 和 Reflect](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Proxy%20%E5%92%8C%20Reflect.md)
 - [Generator 函数](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Generator%20%E5%87%BD%E6%95%B0.md)
-
+- [Iterator 迭代器.md](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Iterator%20%E8%BF%AD%E4%BB%A3%E5%99%A8.md)
+- [Promise 对象](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Promise%20%E5%AF%B9%E8%B1%A1.md)
 
 ## CSS(3) Magics and Skills
 
