@@ -1,7 +1,3 @@
-<!-- MarkdownTOC -->
-
-<!-- /MarkdownTOC -->
-
 本文简单实现jQuery框架，深入理解javascript对象。
 本文的对照版本是jQuery-1.2.6.js
 
@@ -294,4 +290,4 @@ jQuery.extend({
 }(window));
 ```
 
-上述代码源码：[github](https://github.com/faremax1992/repoForBlog/blob/master/Javascript/src/JQStructure.js)
+上述代码源码：[github](https://github.com/faremax1992/FareNotes/blob/master/Javascript/src/JQStructure.js)

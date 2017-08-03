@@ -1,6 +1,4 @@
-> 个人博客
-
-> 本库为个人博客文章，博客地址 [http://blog.csdn.net/faremax](http://blog.csdn.net/faremax)，欢迎提出建议和指正。
+> 前端学习整理，欢迎提出建议和指正
 
 ## ECMAScript 2015
 
@@ -18,7 +16,7 @@
 - [Set 与 Map](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Set%20%E4%B8%8E%20Map.md)
 - [Proxy 和 Reflect](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Proxy%20%E5%92%8C%20Reflect.md)
 - [Generator 函数](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Generator%20%E5%87%BD%E6%95%B0.md)
-- [Iterator 迭代器.md](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Iterator%20%E8%BF%AD%E4%BB%A3%E5%99%A8.md)
+- [Iterator 迭代器](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Iterator%20%E8%BF%AD%E4%BB%A3%E5%99%A8.md)
 - [Promise 对象](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Promise%20%E5%AF%B9%E8%B1%A1.md)
 - [异步编程](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.md)
 - [Class 类](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Class.md)

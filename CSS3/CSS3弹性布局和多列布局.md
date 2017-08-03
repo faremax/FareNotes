@@ -21,14 +21,14 @@
 
 ### 定义一个弹性盒子
 在父盒子上定义display属性：
-```
+```css
 #box{
   display: -webkit-flex;   //webkit内核浏览器的兼容设置，下同
   display: flex;
 }
 ```
 当然还有行内布局的弹性盒子
-```
+```css
 #box{
   display: -webkit-inline-flex;
   display: inline-flex;
