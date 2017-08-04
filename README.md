@@ -32,7 +32,6 @@
 
 ##  Key Points in Javascript
 
-- [别忽视运算符优先级](https://github.com/faremax1992/repoForBlog/blob/master/Javascript/%E5%88%AB%E5%BF%BD%E8%A7%86%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7.md)
 - [setTimeout 和 setInterval](https://github.com/faremax1992/repoForBlog/blob/master/Javascript/setTimeout%E5%92%8CsetInterval.md)
 - [函数、作用域链与闭包](https://github.com/faremax1992/repoForBlog/blob/master/Javascript/%E5%87%BD%E6%95%B0%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%E4%B8%8E%E9%97%AD%E5%8C%85.md)
 - [对象、类与原型链](https://github.com/faremax1992/repoForBlog/blob/master/Javascript/%E5%AF%B9%E8%B1%A1%E3%80%81%E7%B1%BB%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)
