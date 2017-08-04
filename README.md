@@ -28,7 +28,7 @@
 - [CSS 元素垂直居中方法](https://github.com/faremax1992/repoForBlog/blob/master/CSS3/css%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%B3%95.md)
 - [CSS3 弹性布局和多列布局](https://github.com/faremax1992/repoForBlog/blob/master/CSS3/CSS3%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80%E5%92%8C%E5%A4%9A%E5%88%97%E5%B8%83%E5%B1%80.md)
 - [Macbook Figure](http://htmlpreview.github.io/?https://github.com/faremax1992/repoForBlog/blob/master/CSS3/mac/mac.html)
-https://github.com/faremax1992/FareNotes/blob/master/CSS3/less%20%E5%92%8C%20sass%20%E9%85%8D%E7%BD%AE.mdhttps://github.com/faremax1992/FareNotes/blob/master/CSS3/less%20%E5%92%8C%20sass%20%E9%85%8D%E7%BD%AE.md- [less 和 sass 配置](https://github.com/faremax1992/FareNotes/blob/master/CSS3/less%20%E5%92%8C%20sass%20%E9%85%8D%E7%BD%AE.md)
+- [less 和 sass 配置](https://github.com/faremax1992/FareNotes/blob/master/CSS3/less%20%E5%92%8C%20sass%20%E9%85%8D%E7%BD%AE.md)
 
 ##  Key Points in Javascript
 
