@@ -1,0 +1,234 @@
+## 2017年校招全国统一模拟笔试(第五场)编程题集合
+
+> 地址：[2017年校招全国统一模拟笔试(第五场)编程题集合](https://www.nowcoder.com/test/5986669/summary)
+
+# 偶串 (AC)
+
+如果一个字符串由两个相同字符串连接而成,就称这个字符串是偶串。例如"xyzxyz"和"aaaaaa"是偶串,但是"ababab"和"xyzxy"却不是。
+牛牛现在给你一个只包含小写字母的偶串s,你可以从字符串s的末尾删除1和或者多个字符,保证删除之后的字符串还是一个偶串,牛牛想知道删除之后得到最长偶串长度是多少。
+
+输入描述:
+输入包括一个字符串s,字符串长度length(2 ≤ length ≤ 200),保证s是一个偶串且由小写字母构成
+
+输出描述:
+输出一个整数,表示删除之后能得到的最长偶串长度是多少。保证测试数据有非零解
+
+输入例子1:
+> abaababaab
+
+输出例子1:
+> 6
+
+```js
+var readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.on('line', function(line) {
+  var str = line.trim();
+  str = strWithoutLast(str);
+  while(str.length){
+    if(str.length & 1 === 1){
+      str = strWithoutLast(str);
+    }
+    if(isEvenStr(str)){
+      console.log(str.length);
+      break;
+    } else {
+      str = strWithoutLast(str);
+    }
+  }
+  function isEvenStr(str){
+    var len = str.length;
+    var left = str.slice(0, len / 2);
+    var right = str.slice(len / 2, len);
+    return left === right;
+  }
+  function strWithoutLast(str){
+    var len = str.length;
+    return str.slice(0, len - 1);
+  }
+});
+```
+
+## 制造回文 (AC)
+
+牛牛有一些字母卡片,每张卡片上都有一个小写字母,所有卡片组成一个字符串s。牛牛一直认为回文这种性质十分优雅,于是牛牛希望用这些卡片拼凑出一些回文串,但是有以下要求:
+1、每张卡片只能使用一次
+2、要求构成的回文串的数量最少
+牛牛想知道用这些字母卡片,最少能拼凑出多少个回文串。
+例如: s = "abbaa",输出1,因为最少可以拼凑出"ababa"这一个回文串
+s = "abc", 输出3,因为最少只能拼凑出"a","b","c"这三个回文串
+
+输入描述:
+输入包括一行,一个字符串s,字符串s长度length(1 ≤ length ≤ 1000).
+s中每个字符都是小写字母
+
+输出描述:
+输出一个整数,即最少的回文串个数。
+
+输入例子1:
+> abc
+
+输出例子1:
+> 3
+
+```js
+var readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.on('line', function(line) {
+  var alpha = 26;
+  var strArr = line.trim().split('');
+  var arr = [];
+  var odd = 0;
+  while(alpha){arr.push(0); alpha--;}
+  for(var i = 0, len = strArr.length; i < len; i++){
+    var index = strArr[i].charCodeAt(0) - 97;
+    arr[index]++;
+  }
+  arr.forEach(function(item){
+    if(item & 1 === 1){
+      odd++;
+    }
+  });
+  console.log(odd);
+});
+```
+
+## 猜数 (Memory out)
+
+牛牛和羊羊在玩一个有趣的猜数游戏。在这个游戏中,牛牛玩家选择一个正整数,羊羊根据已给的提示猜这个数字。第i个提示是"Y"或者"N",表示牛牛选择的数是否是i的倍数。
+例如,如果提示是"YYNYY",它表示这个数使1,2,4,5的倍数,但不是3的倍数。
+注意到一些提示会出现错误。例如: 提示"NYYY"是错误的,因为所有的整数都是1的倍数,所以起始元素肯定不会是"N"。此外,例如"YNNY"的提示也是错误的,因为结果不可能是4的倍数但不是2的倍数。
+现在给出一个整数n,表示已给的提示的长度。请计算出长度为n的合法的提示的个数。
+例如 n = 5:
+合法的提示有:
+YNNNN YNNNY YNYNN YNYNY YYNNN YYNNY
+YYNYN YYNYY YYYNN YYYNY YYYYN YYYYY
+所以输出12
+
+输入描述:
+输入包括一个整数n(1 ≤ n ≤ 10^6),表示已给提示的长度。
+
+输出描述:
+输出一个整数,表示合法的提示个数。因为答案可能会很大,所以输出对于1000000007的模
+
+输入例子1:
+> 5
+
+输出例子1:
+> 12
+
+```js
+var readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+rl.on('line', function(line) {
+  var mod = 1000000007;
+  var ans = 1;
+  var n = parseInt(line.trim());
+  var vis = [];
+  debugger;
+  for(var i = 2; i <= n; i++){
+    if(vis[i]) continue;
+    for(var j = 2 * i; j <= n; j += i){
+        vis[j] = 1;
+    }
+    var tmp = n;
+    var cnt = 0;
+    while(tmp >= i){
+        tmp /= i;
+        cnt++;
+    }
+    ans = ans * (cnt + 1) % mod;
+  }
+  console.log(ans);
+});
+```
+
+## DNA
+
+DNA片段
+时间限制：1秒
+空间限制：32768K
+牛牛从生物科研工作者那里获得一段字符串数据s,牛牛需要帮助科研工作者从中找出最长的DNA序列。DNA序列指的是序列中只包括'A','T','C','G'。牛牛觉得这个问题太简单了,就把问题交给你来解决。
+例如: s = "ABCBOATER"中包含最长的DNA片段是"AT",所以最长的长度是2。
+输入描述:
+输入包括一个字符串s,字符串长度length(1 ≤ length ≤ 50),字符串中只包括大写字母('A'~'Z')。
+
+
+输出描述:
+输出一个整数,表示最长的DNA片段
+
+输入例子1:
+ABCBOATER
+
+输出例子1:
+2
+
+```js
+var readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+rl.on('line', function(line) {
+  var str = line.trim();
+  var len =  line.match(/[ATCG]*/g).reduce(function(a, b){
+    return a < b.length ? b.length : a;
+  }, 0);
+  console.log(len);
+});
+```
+
+## 彩色瓷砖
+
+牛牛喜欢彩色的东西,尤其是彩色的瓷砖。牛牛的房间内铺有L块正方形瓷砖。每块砖的颜色有四种可能:红、绿、蓝、黄。给定一个字符串S, 如果S的第i个字符是'R', 'G', 'B'或'Y',那么第i块瓷砖的颜色就分别是红、绿、蓝或者黄。
+牛牛决定换掉一些瓷砖的颜色,使得相邻两块瓷砖的颜色均不相同。请帮牛牛计算他最少需要换掉的瓷砖数量。
+
+输入描述:
+输入包括一行,一个字符串S,字符串长度length(1 ≤ length ≤ 10),字符串中每个字符串都是'R', 'G', 'B'或者'Y'。
+
+输出描述:
+输出一个整数,表示牛牛最少需要换掉的瓷砖数量
+
+输入例子1:
+> RRRRRR
+
+输出例子1:
+> 3
+
+```js
+var readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+rl.on('line', function(line) {
+  var str = line.trim();
+  var arr = str.match(/([RGBY])\1+/g);
+  var num = 0;
+  if(arr){
+    num = arr.reduce(function(a, b){
+      return Math.floor(b.length / 2) + a;
+    }, 0);
+  }
+  console.log(num);
+});
+```
+
+
+
+
+
+
+
+

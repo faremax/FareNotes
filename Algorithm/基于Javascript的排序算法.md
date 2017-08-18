@@ -104,11 +104,11 @@ insertionSort = function (arr){
 插入排序时间复杂度为$O(nlogn)$，空间复杂度为$O(logn)$，属于 **不稳定** 排序。
 ```javascript
 ////快速排序(前轴）
-quickSort = function(arr){
-  qSort(arr, 0, arr.length - 1);
+function quickSort(arr){
+  qSort(0, arr.length - 1);
   return arr;
 
-  function qSort(arr, left, right){
+  function qSort(left, right){
     if (left >= right)//两个数相遇则结束该轮排序
       return;
     var key = arr[left];//取最左边的元素作为标识数
@@ -120,8 +120,8 @@ quickSort = function(arr){
       while (i != j && arr[i] <= key) i++;//i后移
       [arr[j], arr[i]] = [arr[i], arr[j]];
     }
-    qSort(arr, left, j - 1);//对标识数前面的数继续该方法排序
-    qSort(arr, j + 1, right);//对标识数后面的数继续该方法排序
+    qSort(left, j - 1);//对标识数前面的数继续该方法排序
+    qSort(j + 1, right);//对标识数后面的数继续该方法排序
   }
 }
 ```
@@ -152,11 +152,11 @@ quickSortM: function(arr){
 }
 
 //后轴快速排序
-quickSortB: function(arr){
-  qSort(arr, 0, arr.length - 1);
+function quickSortB(arr){
+  qSort(0, arr.length - 1);
   return arr;
 
-  function qSort(arr, left, right){
+  function qSort(left, right){
     if (left >= right)//两索引相同结束排序
       return;
     var key = arr[right];
@@ -169,8 +169,8 @@ quickSortB: function(arr){
     }
     i++;
     [arr[right], arr[i]] = [arr[i],arr[right]];//将轴插入到大于轴和小于轴两部分的中间
-    qSort(arr, left, i - 1);//继续这样对轴前面的排序
-    qSort(arr, i, right);//继续这样对轴后面的排序
+    qSort(left, i - 1);//继续这样对轴前面的排序
+    qSort(i, right);//继续这样对轴后面的排序
   }
 }
 ```

@@ -8,6 +8,7 @@
 
 <!-- /MarkdownTOC -->
 
+
 由于 ES6 中引入了许多数据结构, 算上原有的包括Object, Array, TypedArray, DataView, buffer, Map, WeakMap, Set, WeakSet等等, 数组需要一个东西来管理他们, 这就是遍历器(iterator)。
 
 ### for...of
