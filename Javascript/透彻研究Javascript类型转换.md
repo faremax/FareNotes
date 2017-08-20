@@ -12,14 +12,22 @@
   - [toLocaleString 和 toString](#tolocalestring-%E5%92%8C-tostring)
   - [Infinity](#infinity)
   - [javascript精度](#javascript%E7%B2%BE%E5%BA%A6)
-  - [\[\]和{}](#%E5%92%8C)
+  - [\[\] 和 {}](#-%E5%92%8C-)
+- [ES6 中的类型转换和坑](#es6-%E4%B8%AD%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%92%8C%E5%9D%91)
+  - [label 和 块作用域](#label-%E5%92%8C-%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F)
+  - [解构赋值](#%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC)
+  - [模板字符串和对象中的类型转换](#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2)
+  - [展开运算符](#%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6)
+  - [try catch 语句](#try-catch-%E8%AF%AD%E5%8F%A5)
+  - [class 类](#class-%E7%B1%BB)
+- [还未解决的问题](#%E8%BF%98%E6%9C%AA%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98)
 - [另一个更好的 typeOf 函数](#%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A5%BD%E7%9A%84-typeof-%E5%87%BD%E6%95%B0)
 
 <!-- /MarkdownTOC -->
 
 Javascript 中有5种基本类型(不包括 symbol)，以及对象类型，他们在不同的运算中会被系统转化为不同是类型，当然我们也可以手动转化其类型。
 
-Javascript 类型转换中坑点极多，就连 _Douglas Crockford_ 在 《Javascript: The Good Parts》一书中也极力 '吐槽' 。下面我们来自习研究一下这个部分，希望不要把自己绕晕。
+Javascript 类型转换中的坑极多，就连 _Douglas Crockford_ 在 《Javascript: The Good Parts》一书中也极力 '吐槽' 。下面我们来自习研究一下这个部分，希望不要把自己绕晕。
 
 ## typeof 运算
 
@@ -137,12 +145,39 @@ Number("  \t34 ");     //34
 Number("  3\t\n4 ");    //NaN,   不和开头结尾的空格一起的格式化字符不会被忽略
 parseInt("  \t34 ");     //NaN
 ```
-
 - 他们对空字符串的处理也不一样【坑11】
 ```js
 Number("   ");     //0,   空格被忽略了，所以 "    " 等价于 ""
 parseInt("   ");     //NaN,   空格被忽略了，所以 "    " 等价于 ""
 ```
+- 进制转换不局限在十六进制，js 会利用 0=9 和 A-Z 进行最高36进制的数制转换:
+```js
+parseInt('f*ck');     // -> NaN
+parseInt('f*ck', 16); // -> 15
+
+parseInt(null, 24) // -> 23
+
+parseInt('Infinity', 10) // -> NaN
+// ...
+parseInt('Infinity', 18) // -> NaN...
+parseInt('Infinity', 19) // -> 18
+// ...
+parseInt('Infinity', 23) // -> 18...
+parseInt('Infinity', 24) // -> 151176378
+// ...
+parseInt('Infinity', 29) // -> 385849803
+parseInt('Infinity', 30) // -> 13693557269
+// ...
+parseInt('Infinity', 35) // -> 1201203301724
+parseInt('Infinity', 36) // -> 1461559270678...
+parseInt('Infinity', 37) // -> NaN
+```
+- 对于 Number() 而言，不传值和传入 undefiend 是不一样的【坑12】:
+```js
+Number()          // -> 0
+Number(undefined) // -> NaN
+```
+
 
 ### 利用自动类型转换简单的实现手动类型转换
 
@@ -202,20 +237,24 @@ console.log([5,9] + "88");                 //5,988
 console.log(function(e){return;} + "88");  //function(e){return;}88
 ```
 默认的对象转换为字符串使用了 toString 方法(实际上没这么简单，详细见下文)，而 toString 对于对象而言得到 `[object 构造函数名称]` 这样的一个字符串。而数组和函数重写了对象的 toString 方法，所以数组得到用逗号链接的元素序列字符串；函数得到其源代码字符串。
+不过要注意到，除了加号(+)，其他符号都是默认转换为数值型：
+```js
+'3' - 1  // -> 2
+```
 
-不巧的是这里又有例外了：就是 null 和 undefined！！
+但是，不巧的是这里又有例外了：就是 null 和 undefined！！
 
 ### null 和 undefined
 
 这里面首先需要解释的一个坑就是 null 和 undefined 相关的比较问题：
-1、 null/undefined 和字符串相加是转换为字符串"null"/"undefined"，和数字相加是，null 转化为0，而 undefined 转换为 NaN(NaN 和任何数值相加得到的都是 NaN)【坑12】
+1、 null/undefined 和字符串相加是转换为字符串"null"/"undefined"，和数字相加是，null 转化为0，而 undefined 转换为 NaN(NaN 和任何数值相加得到的都是 NaN)【坑13】
 ```js
 console.log(null + 20);         //20
 console.log(undefined + 20);    //NaN
 console.log(null + "20");         //null20
 console.log(undefined + "20");    //undefined20
 ```
-2、 null 和 undefined 除了和自己以及彼此以外和谁都不相等，比如下面这个例子，虽然 null 和 undefined 类型转换都是 false，但它们谁都不等于 false【坑13】
+2、 null 和 undefined 除了和自己以及彼此以外和谁都不相等，比如下面这个例子，虽然 null 和 undefined 类型转换都是 false，但它们谁都不等于 false【坑14】
 ```js
 console.log(false == undefined);   // false
 console.log(false == null);        // false
@@ -232,7 +271,7 @@ console.log(null === undefined);    // false
 - 相等：对于类型不同的两个值而言，通过类型转换可以相等的依然返回 true。
 - 严格相等：不存在类型转换，对于类型不同的两个值直接返回 false。
 
-这样的解释，简单但不明了，因为你会遇到下面这个坑【坑14】：
+这样的解释，简单但不明了，因为你会遇到下面这个坑【坑15】：
 ```js
 if('0') {
   console.log('yes');
@@ -359,13 +398,24 @@ console.log([] == []);             //false
 console.log({} == {});             //false
 ```
 
+比如这样的代码：
+```js
+!![]       // -> true, 和 ==, ===, !=, !== 无关的类型转换不会调用内置的 toPrimitive, 这里调用 Boolean([]) 得到 true
+[] == true // -> false, 这个通过转换得到的是 0 == 1, 返回 false
+```
+以下两个同理：
+```js
+!!null        // -> false
+null == false // -> false
+```
+
 - 关于 toString() 和 valueOf()
 
 ```js
 "J" + { toString: function() { return "S"; } };  // "JS"
 2 * { valueOf: function() { return 3; } };       // 6
 ```
-上面这个例子不深究的话，看上去似乎若合符节，一个转为字符串，调用了 toString，第二个转换为数字，调用了 valueOf。实际上并不是这么简单【坑15】：
+上面这个例子不深究的话，看上去似乎若合符节，一个转为字符串，调用了 toString，第二个转换为数字，调用了 valueOf。实际上并不是这么简单【坑16】：
 根据之前那个表格，这里使用 toPrimitive 而再看 toPrimitive 的定义，除了 Date 和 Symbol 类型转化为字符串，其余的对象都默认转化为数字，所以这里都是先调用 valueOf ，而对象的 valueOf 默认返回对象本身(this)，这个不符合规范，因为规范要求不能返回对象，所以第一个表达式继续调用toString 得到了 'S'，而第二个 valueOf 直接返回 3，没有调用 toString。 为了说明这个逻辑，我们再看一个例子，这次我做过多解释了：
 ```js
 var oriObj = {}
@@ -396,7 +446,7 @@ console.log(+0 == -0);             //true
 > }
 > ```
 
-- NaN 是唯一一个不等于自己的值【坑16】
+- NaN 是唯一一个不等于自己的值【坑17】
 
 ```js
 var x = NaN;
@@ -404,7 +454,7 @@ console.log(x == x);           //false
 ```
 
 - 这里有一个容易记混的地方
-对于 `+` 运算，字符串和数字相加是将数字转换为字符串；而 `==` 运算中是将字符串转换为数字【坑17】
+对于 `+` 运算，字符串和数字相加是将数字转换为字符串；而 `==` 运算中是将字符串转换为数字【坑18】
 
 ```js
 // 结合之前的【坑10】，就得到这么一让人想骂娘的结果
@@ -430,7 +480,7 @@ console.log(date.toLocaleTimeString()); //上午11:50:51
 ```
 数组类型的 toLocaleString 就是将数组中的数值类型和日期类型分别按 toLocaleString 转换为字符串，再形成整体字符串。
 
-关于 toLocaleString 的定义官方也是故意没给出具体的实现细节【坑18】，这一点完全不能理解，所以这个方法用的场合也比较有限，这里不再赘述了。
+关于 toLocaleString 的定义官方也是故意没给出具体的实现细节【坑19】，这一点完全不能理解，所以这个方法用的场合也比较有限，这里不再赘述了。
 
 ### Infinity
 
@@ -463,14 +513,22 @@ console.log(4.18e-1000);               //0
 console.log(0.000006);                 //0.000006
 console.log(0.0000006);                //6e-7
 ```
-但在精度范围边界，总会有一些问题【坑19】，姑且认为这也是个坑吧，不过这样的问题在其他编程语言中也普遍存在
+但在精度范围边界，总会有一些问题【坑20】，姑且认为这也是个坑吧，不过这样的问题在其他编程语言中也普遍存在
 ```js
 console.log(1e200 + 1 === 1e200);  //true
 console.log(0.1 + 0.2);                //0.30000000000000004
 console.log(0.3 === 0.1 + 0.2);        //false
 ```
+在比如下面这个
+```js
+999999999999999  // -> 999999999999999
+9999999999999999 // -> 10000000000000000
 
-### []和{}
+10000000000000000       // -> 10000000000000000
+10000000000000000 + 1   // -> 10000000000000000
+10000000000000000 + 1.1 // -> 10000000000000002
+```
+### [] 和 {}
 
 有了上面的基础，这个最坑的部分来了
 ```js
@@ -499,7 +557,7 @@ console.log(obj[]);      //SyntaxError: Unexpected token ]
 ```
 所以这里他是个表示代码段的括号(注意块级作用域是 ES6 提出了，在 ES5 中 `{}` 仅仅表示一个代码段，如 `if(exp){...}` 中的 `{}`) ，这里这个代码段里面什么也没有，执行完以后这个 `{}` 就没了，剩下一个数组 `[]`。第二个表达式 `[]{}` 从左到右先遇到一个数组，数组后面定义代码段或者对象都是不符合语法的。
 
-我们再看几个赋值相关的，这里又是一个坑，居然 js 敢不限制赋值表达式的左值是标识符或 Symbol【坑20】：
+我们再看几个赋值相关的，这里又是一个坑，居然 js 敢不限制赋值表达式的左值是标识符或 Symbol【坑21】：
 ```js
 var [] = 1;            //"TypeError"(类型错误)
 var [] = "1" ;         //(正常执行，由于字符串对象本身就是类数组对象)
@@ -508,12 +566,103 @@ var {} = [] ;          //(正常执行，仅仅是指针指向从对象改变到
 ```
 以上的2个错误，都是 “TypeError: undefined is not a function”，很明显，由于表达式不规范导致被js误认为是一个函数，从而报错。
 
+如果你理解了这些，不妨研究一下下面两个表达式的值吧：
+```js
+(![]+[])[+[]]+(![]+[])[+!+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]    //'fail'
+(!(~+[])+{})[--[~+""][+[]]*[~+[]] + ~~!+[]]+({}+[])[[~!+[]]*~+[]]                //'sb'
+```
+当然还有更奇怪的,原因还是在于数组对象重写了对象的 toString 方法【坑】：
+```js
+[] == ![]  //true
+{} == !{}  //false
+```
+
+## ES6 中的类型转换和坑
+
+ES6 中同样带入了许多坑，当然这些坑不一定都是类型转换导致的。
+
+### label 和 块作用域
+
+比如下面这段代码，看似像定义对象属性，但实际上是个块级作用域，`foo:` 是一个的标签，用来给 break 指定跳转的地方。
+```js
+foo: {
+  console.log('first');   //first
+  break foo;
+  console.log('second');   //不输出
+}
+```
+再看下面这个：
+
+由于前面的 a-g 都是标签，而后面的逗号表达式会返回最后一个表达式的值
+```js
+a: b: c: d: e: f: g: 1, 2, 3, 4, 5;    // -> 5
+```
+
+### 解构赋值
+
+比如这样定义变量，并且结构赋值
+```js
+let x, { x: y = 1 } = { x };    //由于 x 是 undefined 所以 y 取了默认值 1
+console.log(y);                 //1
+```
+
+### 模板字符串和对象中的类型转换
+
+对象在类似 EL 表达式中会被自动转换为字符串, 而对象的键值也会被默认转换为字符串(除了 Symbol 类型)
+```js
+`${{Object}}`        //'[object Object]'
+{ [{}]: {} }         // -> { '[object Object]': {} }
+```
+
+### 展开运算符
+
+由于字符串具有 iterator 就被展开了:
+```js
+[...[...'...']].length   //3   实际上得到的是['.', '.', '.']
+```
+
+### try catch 语句
+
+这个不算是 es6 的问题，不过我们也看一看：
+
+try 中的 return 和 throw 会在有 finally 语句是中的 return 或 throw 覆盖(这里的确是覆盖，而不是前一个 return 未执行，详细可以参看[规范](http://www.ecma-international.org/ecma-262/8.0/#sec-try-statement-runtime-semantics-evaluation)第13.15.8节。
+```js
+(() => {
+  try {
+    return 2;
+  } finally {
+    return 3;
+  }
+})()
+```
+
+### class 类
+
+```js
+//这个代码是不会报错的，系统会直接将 'class' 字符串作为对象的属性名
+const foo = {
+  class: function() {}
+};
+
+
+var obj = new class {
+  class() {}
+};
+console.log(obj);   //{},  和 var obj = new class{} 一样
+```
+
+## 还未解决的问题
+
+下面这个输入，博主一直很疑惑。把2行代码分别输入到 chrome 控制台，得到对应结果。按规范的逻辑应该输出[object Object]，而第二个暂时还不知道怎么解释
+```js
+console.log({} + []);  //[object Object]
+{}+[];    //0
+```
+
 ## 另一个更好的 typeOf 函数
 
 ```js
 function typeOf(val){
-  if(val === null) return "Null";
-  if(val === undefined) return "Undefined";
-  return Object.prototype.toString.call(val).slice(8, -1);
+  return Object.prototype.toString.call(val).slice(8, -1);  //同样可以很好的处理 null 和 undefined
 }
 ```
