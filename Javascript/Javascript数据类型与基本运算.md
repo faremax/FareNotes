@@ -130,14 +130,14 @@ obj.gender;    //'M'  获取 obj 对象的性别
     <td>说明</td>
   </tr>
   <tr>
-    <td>19</td>
+    <td>20</td>
     <td>圆括号</td>
     <td>n/a</td>
     <td>( … )</td>
     <td> - </td>
   </tr>
   <tr>
-    <td rowspan="3">18</td>
+    <td rowspan="3">19</td>
     <td>成员访问</td>
     <td>从左到右</td>
     <td>obj.name</td>
@@ -156,7 +156,7 @@ obj.gender;    //'M'  获取 obj 对象的性别
     <td> - </td>
   </tr>
   <tr>
-    <td rowspan="2">17</td>
+    <td rowspan="2">18</td>
     <td>函数调用</td>
     <td>从左到右</td>
     <td>fun(args)</td>
@@ -169,7 +169,7 @@ obj.gender;    //'M'  获取 obj 对象的性别
     <td> - </td>
   </tr>
   <tr>
-    <td rowspan="2">16</td>
+    <td rowspan="2">17</td>
     <td>后置递增</td>
     <td>n/a</td>
     <td>a++</td>
@@ -182,7 +182,7 @@ obj.gender;    //'M'  获取 obj 对象的性别
     <td>相当于 a = a - 1;</td>
   </tr>
   <tr>
-    <td rowspan="9">15</td>
+    <td rowspan="9">16</td>
     <td>逻辑非</td>
     <td>从右到左</td>
     <td>!a</td>
@@ -235,6 +235,13 @@ obj.gender;    //'M'  获取 obj 对象的性别
     <td>从右到左</td>
     <td>delete obj.age</td>
     <td>删除对象属性</td>
+  </tr>
+  <tr>
+   <td>15</td>
+    <td>幂</td>
+    <td>从右到左</td>
+    <td>2**4</td>
+    <td>得16</td>
   </tr>
   <tr>
     <td rowspan="3">14</td>
