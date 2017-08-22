@@ -45,7 +45,7 @@
 - [正则表达式 RegExp](https://github.com/faremax1992/repoForBlog/blob/master/Javascript/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8FRegExp.md)
 - [透彻研究Javascript类型转换](https://github.com/faremax1992/FareNotes/blob/master/Javascript/%E9%80%8F%E5%BD%BB%E7%A0%94%E7%A9%B6Javascript%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.md)
 - [Javascript数据类型与基本运算](https://github.com/faremax1992/FareNotes/blob/master/Javascript/Javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97.md)
-
+- [常用浏览器事件解析](https://github.com/faremax1992/FareNotes/blob/master/Javascript/%E5%B8%B8%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E8%A7%A3%E6%9E%90.md)
 ## Web Development
 
 - [简析chrome调试技巧](https://github.com/faremax1992/repoForBlog/blob/master/Front-End/%E7%AE%80%E6%9E%90chrome%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7.md)
@@ -73,4 +73,4 @@
 - [http 状态码](https://github.com/faremax1992/repoForBlog/blob/master/Manual/http%E7%8A%B6%E6%80%81%E7%A0%81.md)
 - [sublime 快捷键一览](https://github.com/faremax1992/repoForBlog/blob/master/Manual/sublime%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%B8%80%E8%A7%88.md)
 - [网络通信-端口汇总](https://github.com/faremax1992/FareNotes/blob/master/Manual/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1-%E7%AB%AF%E5%8F%A3%E6%B1%87%E6%80%BB.md)
-
+- [MIME 一览](https://github.com/faremax1992/FareNotes/blob/master/Manual/MIME%E4%B8%80%E8%A7%88.md)
