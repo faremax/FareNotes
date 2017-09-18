@@ -224,17 +224,10 @@ makeRequest()
 最后一点，依然很重要，async/await 是调试的的杀手锏，使用起来十分轻松。调试 promise 十分痛苦有 2 个原因：
 
 1. 你无法在返回表达式的箭头函数中设置断点（没有函数体）
-```js
-const makeRequest = () => {
-  return callAPromise()
-    .then(() => callAPromise())
-    .then(() => callAPromise())
-    .then(() => callAPromise())
-    .then(() => callAPromise())
-}
-```
+![image](img/20170918141431789.png)
 2. 如果你在一个 `.then` 块中设置断点，并且使用如单步调试这样的调试快捷方式，调试器不会移动到下一个 `.then`，因为它仅仅可以一步步的走过同步代码。
 通过 async/await 你就不需要那些箭头函数了，你可以单步通过 await 调用，确切来将就像同步调用一样。
+![image](img/20170918141453846.png)
 
 ## 结论
 Async/await 是过去几年已经被加入 JavaScript 中十分具有革命性的特性之一。它使得你可实现 大量异步的 promise ，并提供一种直接的代替方案。
