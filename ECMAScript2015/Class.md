@@ -80,7 +80,7 @@ var keys = Object.keys(Point.prototype);
 var ownKeys = Object.getOwnPropertyNames(Point.prototype);
 console.log(keys);        //[]
 console.log(ownKeys);     //["constructor", "toString", "getX", "getY"]
-console.log(p.hasOwnProperty("toString"));                  //fales
+console.log(p.hasOwnProperty("toString"));                  //false
 console.log(p.__proto__.hasOwnProperty("toString"));        //true
 ```
 ```js
@@ -91,7 +91,7 @@ function Point(x, y){
 }
 Point.prototype = {
   toString(){
-    return `(${this.x},${this.y})`;
+    return '(' + this.x + ',' + this.y + ')';
   },
   getX(){
     return this.x;
@@ -105,7 +105,7 @@ var keys = Object.keys(Point.prototype);
 var ownKeys = Object.getOwnPropertyNames(Point.prototype);
 console.log(keys);        //["toString", "getX", "getY"]
 console.log(ownKeys);     //["toString", "getX", "getY"]
-console.log(p.hasOwnProperty("toString"));                  //fales
+console.log(p.hasOwnProperty("toString"));                  //false
 console.log(p.__proto__.hasOwnProperty("toString"));        //true
 ```
 这个例子说明，class 中定义的动态方法是不可枚举的，并且 constructor 也是其自有方法中的一个。
@@ -246,7 +246,7 @@ for(let info of p){
 
 这里我们只重点讲继承，关于多态没有新的修改，和 ES5 中一样，在函数内判断参数即可。关于多态可以阅读[Javascript对象(1) - 对象、类与原型链](https://github.com/faremax1992/repoForBlog/blob/master/Javascript/%E5%AF%B9%E8%B1%A1%E3%80%81%E7%B1%BB%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE.md)中关于`多态重构`的部分。
 
-此外，class 继承属于 ES5 中多种继承方式的共享原型，关于共享原型也在上面这篇文章中讲解过。
+此外，class 继承属于 ES5 中多种继承方式的实例继承，关于共享原型也在上面这篇文章中讲解过。
 
 class 实现继承可以简单的通过 extends 关键字实现, 而使用 super 关键字调用父类方法：
 ```js
