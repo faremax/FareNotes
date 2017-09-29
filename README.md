@@ -1,6 +1,6 @@
 > 前端学习整理，欢迎提出建议和指正
 
-## ECMAScript 2015
+## ECMAScript 6(2015)
 
 - [Babel 环境搭建](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Babel%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md)
 - [let, const和块级作用域](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/let%2C%20const%E5%92%8C%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F.md)
@@ -21,6 +21,9 @@
 - [异步编程](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.md)
 - [Class 类](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Class.md)
 - [Module 模块](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Module%20%E6%A8%A1%E5%9D%97.md)
+
+## ECMAScript 2017
+- [六个Async:Await取代Promises的原因](https://github.com/faremax1992/FareNotes/blob/master/ECMAScript2017/%E5%85%AD%E4%B8%AAAsync:Await%E5%8F%96%E4%BB%A3Promises%E7%9A%84%E5%8E%9F%E5%9B%A0.md)
 
 ## CSS(3) Magics and Skills
 
@@ -46,6 +49,7 @@
 - [透彻研究Javascript类型转换](https://github.com/faremax1992/FareNotes/blob/master/Javascript/%E9%80%8F%E5%BD%BB%E7%A0%94%E7%A9%B6Javascript%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.md)
 - [Javascript数据类型与基本运算](https://github.com/faremax1992/FareNotes/blob/master/Javascript/Javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97.md)
 - [常用浏览器事件解析](https://github.com/faremax1992/FareNotes/blob/master/Javascript/%E5%B8%B8%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E8%A7%A3%E6%9E%90.md)
+
 ## Web Development
 
 - [简析chrome调试技巧](https://github.com/faremax1992/repoForBlog/blob/master/Front-End/%E7%AE%80%E6%9E%90chrome%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7.md)
@@ -53,6 +57,7 @@
 - [前端兼容性问题总结](https://github.com/faremax1992/repoForBlog/blob/master/Front-End/%E5%89%8D%E7%AB%AF%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93.md)
 - [web 前端开发编码规范及性能优化](https://github.com/faremax1992/repoForBlog/blob/master/Front-End/web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%E5%8F%8A%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.md)
 - [个人博客主页搭建随笔](https://github.com/faremax1992/FareNotes/blob/master/Front-End/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A1%B5%E6%90%AD%E5%BB%BA%E9%9A%8F%E7%AC%94.md)
+- [前端开发中的基础思考题](https://github.com/faremax1992/FareNotes/blob/master/Front-End/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%9F%BA%E7%A1%80%E6%80%9D%E8%80%83%E9%A2%98.md)
 
 ## Functional Programming
 
@@ -67,6 +72,7 @@
 - [基础算法练习及相关技巧](https://github.com/faremax1992/repoForBlog/blob/master/Algorithm/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8A%80%E5%B7%A7.md)
 - [基于 Javascript 的排序算法](https://github.com/faremax1992/repoForBlog/blob/master/Algorithm/%E5%9F%BA%E4%BA%8EJavascript%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95.md)
 - [基本数据结构和查找算法](https://github.com/faremax1992/repoForBlog/blob/master/Algorithm/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95.md)
+- [剑指offer--JavaScript 版](https://github.com/faremax1992/FareNotes/blob/master/Algorithm/%E5%89%91%E6%8C%87offer--JavaScript%20%E7%89%88.md)
 
 ## Manual
 
