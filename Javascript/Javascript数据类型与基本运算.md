@@ -401,62 +401,51 @@ obj.gender;    //'M'  获取 obj 对象的性别
   <tr>
     <td rowspan="12">3</td>
     <td rowspan="12">赋值</td>
-    <td>从右到左</td>
+    <td rowspan="12">从右到左</td>
     <td>a = 2</td>
     <td> - </td>
   </tr>
   <tr>
-    <td>+=</td>
     <td>a += 2</td>
     <td>相当于 a = a + 2</td>
   </tr>
   <tr>
-    <td>-=</td>
     <td>a -= 2</td>
     <td>相当于 a = a - 2</td>
   </tr>
   <tr>
-    <td>*=</td>
     <td>a *= 2</td>
     <td>相当于 a = a * 2</td>
   </tr>
   <tr>
-    <td>/=</td>
     <td>a /= 2</td>
     <td>相当于 a = a / 2</td>
   </tr>
   <tr>
-    <td>&amp;=</td>
     <td>a &amp;= 2</td>
     <td>相当于 a = a &amp; 2</td>
   </tr>
   <tr>
-    <td>|=</td>
     <td>a |= 2</td>
     <td>相当于 a = a | 2</td>
   </tr>
   <tr>
-    <td>^=</td>
     <td>a ^= 2</td>
     <td>相当于 a = a ^ 2</td>
   </tr>
   <tr>
-    <td>%=</td>
     <td>a %= 2</td>
     <td>相当于 a = a % 2</td>
   </tr>
   <tr>
-    <td>&lt;&lt;=</td>
     <td>a &lt;&lt;= 2</td>
     <td>相当于 a = a &lt;&lt; 2</td>
   </tr>
   <tr>
-    <td>>>=</td>
     <td>a &gt;&gt;= 2</td>
     <td>相当于 a = a &gt;&gt; 2</td>
   </tr>
   <tr>
-    <td>&gt;&gt;&gt;=</td>
     <td>a &gt;&gt;&gt;= 2</td>
     <td>相当于 a = a &gt;&gt;&gt; 2</td>
   </tr>
