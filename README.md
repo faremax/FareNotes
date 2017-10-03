@@ -77,7 +77,7 @@
 
 - [Babel 环境搭建](https://github.com/faremax1992/repoForBlog/blob/master/Configuration/Babel%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md)
 - [less 和 sass 配置](https://github.com/faremax1992/FareNotes/blob/master/Configuration/less%20%E5%92%8C%20sass%20%E9%85%8D%E7%BD%AE.md)
--
+- [Linux,Windows,Mac平台php环境配置](https://github.com/faremax1992/FareNotes/blob/master/Configuration/Linux%2CWindows%2CMac%E5%B9%B3%E5%8F%B0php%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.md)
 
 ## Manual
 
