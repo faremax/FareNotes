@@ -9,6 +9,7 @@
   - [call方法 和 apply方法](#call%E6%96%B9%E6%B3%95-%E5%92%8C-apply%E6%96%B9%E6%B3%95)
   - [实例](#%E5%AE%9E%E4%BE%8B)
 - [箭头函数中的this](#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84this)
+- [with](#with)
 
 <!-- /MarkdownTOC -->
 
@@ -505,4 +506,39 @@ o.speak();  //Object {name: "Lily", age: 18, gender: "F"}
   }
 };
 o.speak()();  //Object {name: "Lily", age: 18, gender: "F"}
+```
+
+### with
+
+with 可以改变上下文环境，实际开发中十分不建议使用 with, 但关于 with 这里简单说明一下，看一个示例：
+```js
+var a, x, y;
+var r = 10;
+
+with (Math) {
+  a = round(PI * r * r);
+  x = r * cos(PI);
+  y = r * sin(PI / 2);
+}
+
+console.log(a, x, y);  //314 -10 10
+```
+
+但是如果在 with 内直接声明变量会发生什么：
+```js
+var obj = {
+  name: 'test'
+};
+
+with(obj){   //内部定义的变量都注册在 obj 上
+  name = "hello";
+  var salary = 10000;
+  age = 20;
+}
+
+console.log(obj.name);     //'hello'
+console.log(obj.age);      //undefined
+console.log(age);   //20, 如果对象不具有这个属性，该定义会意外的出现在 全局变量中
+console.log(obj.salary);      //undefined
+console.log(salary);   //10000, 如果对象不具有这个属性，该定义会意外的出现在 全局变量中
 ```

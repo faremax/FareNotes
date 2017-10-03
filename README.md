@@ -2,7 +2,6 @@
 
 ## ECMAScript 6(2015)
 
-- [Babel 环境搭建](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Babel%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md)
 - [let, const和块级作用域](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/let%2C%20const%E5%92%8C%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F.md)
 - [解构赋值](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC.md)
 - [数值类型扩展](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/%E6%95%B0%E5%80%BC%E7%B1%BB%E5%9E%8B%E6%89%A9%E5%B1%95.md)
@@ -31,7 +30,6 @@
 - [CSS 元素垂直居中方法](https://github.com/faremax1992/repoForBlog/blob/master/CSS3/css%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%B3%95.md)
 - [CSS3 弹性布局和多列布局](https://github.com/faremax1992/repoForBlog/blob/master/CSS3/CSS3%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80%E5%92%8C%E5%A4%9A%E5%88%97%E5%B8%83%E5%B1%80.md)
 - [Macbook Figure](http://htmlpreview.github.io/?https://github.com/faremax1992/repoForBlog/blob/master/CSS3/mac/mac.html)
-- [less 和 sass 配置](https://github.com/faremax1992/FareNotes/blob/master/CSS3/less%20%E5%92%8C%20sass%20%E9%85%8D%E7%BD%AE.md)
 
 ##  Key Points in Javascript
 
@@ -73,6 +71,12 @@
 - [基于 Javascript 的排序算法](https://github.com/faremax1992/repoForBlog/blob/master/Algorithm/%E5%9F%BA%E4%BA%8EJavascript%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95.md)
 - [基本数据结构和查找算法](https://github.com/faremax1992/repoForBlog/blob/master/Algorithm/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95.md)
 - [剑指offer--JavaScript 版](https://github.com/faremax1992/FareNotes/blob/master/Algorithm/%E5%89%91%E6%8C%87offer--JavaScript%20%E7%89%88.md)
+
+## Configuration
+
+- [Babel 环境搭建](https://github.com/faremax1992/repoForBlog/blob/master/Configuration/Babel%20%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md)
+- [less 和 sass 配置](https://github.com/faremax1992/FareNotes/blob/master/Configuration/less%20%E5%92%8C%20sass%20%E9%85%8D%E7%BD%AE.md)
+-
 
 ## Manual
 

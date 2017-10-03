@@ -148,8 +148,3 @@ Encoding.default_external = Encoding.find('utf-8')
 - Sass 提供 Sass 语法高亮
 
 sublime 对 sass 不需要多余的配置，所有功能依然通过命令行完成。
-
-
-
-
-

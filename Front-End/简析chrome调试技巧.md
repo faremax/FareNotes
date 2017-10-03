@@ -6,14 +6,14 @@
 
 - [alert](#alert)
 - [console](#console)
-	- [基本输出](#%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%87%BA)
-	- [格式化输出](#%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA)
-	- [DOM输出](#dom%E8%BE%93%E5%87%BA)
-	- [对象输出](#%E5%AF%B9%E8%B1%A1%E8%BE%93%E5%87%BA)
-	- [成组输出](#%E6%88%90%E7%BB%84%E8%BE%93%E5%87%BA)
-	- [函数计数和跟踪](#%E5%87%BD%E6%95%B0%E8%AE%A1%E6%95%B0%E5%92%8C%E8%B7%9F%E8%B8%AA)
-	- [计时](#%E8%AE%A1%E6%97%B6)
-	- [性能分析](#%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90)
+  - [基本输出](#%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%87%BA)
+  - [格式化输出](#%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA)
+  - [DOM输出](#dom%E8%BE%93%E5%87%BA)
+  - [对象输出](#%E5%AF%B9%E8%B1%A1%E8%BE%93%E5%87%BA)
+  - [成组输出](#%E6%88%90%E7%BB%84%E8%BE%93%E5%87%BA)
+  - [函数计数和跟踪](#%E5%87%BD%E6%95%B0%E8%AE%A1%E6%95%B0%E5%92%8C%E8%B7%9F%E8%B8%AA)
+  - [计时](#%E8%AE%A1%E6%97%B6)
+  - [性能分析](#%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90)
 - [debugger](#debugger)
 - [chrome中的调试技巧](#chrome%E4%B8%AD%E7%9A%84%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7)
 - [调试过程注意事项](#%E8%B0%83%E8%AF%95%E8%BF%87%E7%A8%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9)
@@ -34,7 +34,7 @@ console.error("我是个错误");//在控制台打印自定义错误信息
 console.info("我是个信息");//在控制台打印自定义信息
 console.warn("我是个警告");//在控制台打印自定义警告信息
 console.debug("我是个调试");//在控制台打印自定义调试信息
-cosole.clear();//清空控制台（这个下方截图中没有）
+console.clear();//清空控制台（这个下方截图中没有）
 ```
 ![console](img/20161116152838380.png)
 
@@ -80,7 +80,9 @@ var stu = [{name:"Bob",age:13,hobby:"playing"},{name:"Lucy",age:14,hobby:"readin
 console.log(stu);
 console.table(stu);
 ```
+
 ![这里写图片描述](img/20170613202355298.png)
+
 #### 成组输出
 ```javascript
 //建立一个参数组

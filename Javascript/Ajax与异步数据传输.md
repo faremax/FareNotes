@@ -338,7 +338,7 @@ XMLHttpRequestEventTarget.onloadstart   //当一个HTTP请求开始加载数据�
 XMLHttpRequestEventTarget.onloadend   //当内容加载完成，不管失败与否，都会调用该方法
 XMLHttpRequestEventTarget.onprogress   //间歇调用该方法用来获取请求过程中的信息。
 ```
-注：关于 xhr.status 可能的返回值，详见 [http状态码](http://blog.csdn.net/faremax/article/details/53703808)
+注：关于 xhr.status 可能的返回值，详见 [http状态码](https://github.com/faremax1992/FareNotes/blob/master/Manual/http%E7%8A%B6%E6%80%81%E7%A0%81.md)
 
 ## jQuery 中的 Ajax 方法
 

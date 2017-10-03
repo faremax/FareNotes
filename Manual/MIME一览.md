@@ -1,3 +1,9 @@
+<!-- MarkdownTOC -->
+
+- [常用类型](#%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%9E%8B)
+- [MIME类型大全](#mime%E7%B1%BB%E5%9E%8B%E5%A4%A7%E5%85%A8)
+
+<!-- /MarkdownTOC -->
 
 ## 常用类型
 
