@@ -19,6 +19,7 @@
 - [Promise 对象](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Promise%20%E5%AF%B9%E8%B1%A1.md)
 - [异步编程](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B.md)
 - [Class 类](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Class.md)
+- [Decorator 修饰器](https://github.com/faremax1992/FareNotes/blob/master/ECMAScript2015/%E4%BF%AE%E9%A5%B0%E5%99%A8.md)
 - [Module 模块](https://github.com/faremax1992/repoForBlog/blob/master/ECMAScript2015/Module%20%E6%A8%A1%E5%9D%97.md)
 
 ## ECMAScript 2017
