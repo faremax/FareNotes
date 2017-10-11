@@ -402,3 +402,17 @@ var it = gen();
   });
 })(it.next());      //foo
 ```
+3. 异步中模拟 sleep 函数
+```js
+const sleep = (time) => new Promise(function(resolve){
+  setTimeout(resolve, time);
+});
+(async () => {
+  for(var i = 0; i < 5; i++){
+    await sleep(1000);
+    console.log(new Date, i);
+  }
+  await sleep(1000);
+  console.log(new Date, i);
+})();
+```
