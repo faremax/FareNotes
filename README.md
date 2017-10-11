@@ -73,6 +73,8 @@
 - [基本数据结构和查找算法](https://github.com/faremax1992/repoForBlog/blob/master/Algorithm/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95.md)
 - [剑指offer--JavaScript 版](https://github.com/faremax1992/FareNotes/blob/master/Algorithm/%E5%89%91%E6%8C%87offer--JavaScript%20%E7%89%88.md)
 - [基础数据结构和算法概念](https://github.com/faremax1992/FareNotes/blob/master/Algorithm/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E6%A6%82%E5%BF%B5.md)
+- [算法基础之简单线性算法](https://github.com/faremax1992/FareNotes/blob/master/Algorithm/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%AE%80%E5%8D%95%E7%BA%BF%E6%80%A7%E7%AE%97%E6%B3%95.md)
+- [算法基础之经典算法](https://github.com/faremax1992/FareNotes/blob/master/Algorithm/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95.md)
 
 ## Configuration
 
