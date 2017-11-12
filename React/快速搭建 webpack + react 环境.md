@@ -39,7 +39,7 @@ npm i --save-dev react react-dom react-transform-hmr webpack webpack-dev-server 
 
 建立如下目录结构(图中不包括 node_modules 目录，实际项目中必须保留，下同)
 
-![这里写图片描述](http://img.blog.csdn.net/20171112100629140?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvRmFyZW1heA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![](img/20171112100629140.png)
 
 其中 webpack.config.js 内容如下
 ```js
