@@ -13,6 +13,8 @@
   - [Infinity](#infinity)
   - [javascript精度](#javascript%E7%B2%BE%E5%BA%A6)
   - [\[\] 和 {}](#-%E5%92%8C-)
+  - [数组中的 null 和 undefined](#%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84-null-%E5%92%8C-undefined)
+- [大于号和小于号](#%E5%A4%A7%E4%BA%8E%E5%8F%B7%E5%92%8C%E5%B0%8F%E4%BA%8E%E5%8F%B7)
 - [ES6 中的类型转换和坑](#es6-%E4%B8%AD%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%92%8C%E5%9D%91)
   - [label 和 块作用域](#label-%E5%92%8C-%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F)
   - [解构赋值](#%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC)
@@ -20,7 +22,7 @@
   - [展开运算符](#%E5%B1%95%E5%BC%80%E8%BF%90%E7%AE%97%E7%AC%A6)
   - [try catch 语句](#try-catch-%E8%AF%AD%E5%8F%A5)
   - [class 类](#class-%E7%B1%BB)
-- [还未解决的问题](#%E8%BF%98%E6%9C%AA%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98)
+  - [Symbol](#symbol)
 - [另一个更好的 typeOf 函数](#%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A5%BD%E7%9A%84-typeof-%E5%87%BD%E6%95%B0)
 
 <!-- /MarkdownTOC -->
@@ -47,18 +49,20 @@ typeof fn;         //function
 ```
 通过上面例子我们可以很明显的看到，除了基本类型以外的类型，都是对象，但是有例外：`null` 的 typeof 值是 `'object'` 【坑1】, 函数的 typeof 值是 `'function'` ! (函数对象的构造函数是 Function，也就继承了 Function 的原型)【坑2】
 
+> 注：JS 中 typeof 根据变量存储单元特性判断变量类型，其中当变量的前三位都是 0， 这个变量就是对象类型。但不幸的是，null 的所以位都是 0，结果就被识别成对象了。(摘自《你不知道的 JS 上卷》)
+
 而且我们不难发现，`NaN` 的类型也是 `'number'`，这个地方也是矛盾十足【坑3】
 
 注意：本文的测试在现在最新浏览器上进行，老版本浏览器可能有所不同。比如Safari 3.X中`typeof /^\d*$/;`为`'function'`【坑4:兼容性复杂】。
 
-不是所有对象都是返回 object，而且还有 null 捣乱，那我们如何判断一个值的类型呢？这个问题超过了本篇文章的知识范围，但我会实现一个 typeof 函数，可以更好的取代这个 typeof 运算符。为了不让读者和下文内容混了，我把它放在了文章末尾。
+不是所有对象都是返回 `'object'`，而且还有 `null` 捣乱，那我们如何判断一个值的类型呢？这个问题超过了本篇文章的知识范围，但我会实现一个 typeof 函数，可以更好的取代这个 typeof 运算符。为了不让读者和下文内容混了，我把它放在了文章末尾。
 
 ## 强制类型转换(手动类型转换)
 
-对于基本类型而言，数值类、布尔类和字符串类具有其对应的对象类型，其构造函数在没有`new`关键字调用的时候是类型转换函数，使用方法如下：
+对于基本类型而言，数值、布尔和字符串具有其对应的对象类型，其构造函数在没有`new`关键字调用的时候是类型转换函数，使用方法如下：
 ```js
 var num =  Number('43');          //43
-typeof num;                       //number
+typeof num;                       //'number'
 var str = String(num);            //'43'
 var flag = Boolean(num);          //true
 ```
@@ -87,13 +91,13 @@ Infinity | "Infinity" | - | true | new Number(Infinity)
 function | 函数源代码 | NaN | true |  -
 
 - 注释1: 对于 toPrimitive 会在下文详细解释。
-- 注释2：只有空字符串(`""`)、`null`、`undefined`、`0` 和 `NaN` 的布尔型是 `false`，其他的都是 `true`。
+- 注释2：只有空字符串(`""`)、`null`、`undefined`、`+0`、`-0` 和 `NaN` 转为布尔型是 `false`，其他的都是 `true`。
 - 注释3：空数组、空对象转换为布尔型也是 true【坑5】。
 - 注释4：`null` 和 `undefined` 转换为数字是表现不一，分别为`NaN`和`0`。【坑6】
 
 有个东西需要单独说明：
 字符串转换为数字，除了 `Number()` 还有 `parseInt()` 和 `parseFloat()` 函数。他们是有区别的：
-- `parseInt()` 将输入值转化为整数；`parseFloat()` 如果输入的是小数(或具有可转换小数的字符串)转换为小数，如果输入是个整数依然返回整数【坑7】：
+- `parseInt()` 将输入值转化为整数；`parseFloat()` 如果输入的是小数字符串(或具有可转换小数的字符串)转换为小数，如果输入是个整数字符串依然返回整数【坑7】：
 ```js
 console.log(parseFloat(" 6.2 "));     //6.2
 console.log(parseFloat("10"));        //10
@@ -177,7 +181,14 @@ parseInt('Infinity', 37) // -> NaN
 Number()          // -> 0
 Number(undefined) // -> NaN
 ```
-
+- Number() 接受数值作为参数，此时它既能识别负的十六进制，也能识别0开头的八进制，返回值永远是十进制值
+```js
+Number(3);       //3
+Number(3.15);    //3.15
+Number(023);     //19
+Number(0x12);    //18
+Number(-0x12);   //-18
+```
 
 ### 利用自动类型转换简单的实现手动类型转换
 
@@ -189,7 +200,7 @@ var str = "" + 2;              //"2"
 // 任意值 => 数字
 var num = +"2";                //2
 // 任意值 => 布尔
-var str = !!2;                 //"2"
+var bool = !!2;                 //true
 // 数值取整数
 var integer = ~~3.1415926;     //3，这个不涉及类型转换
 // 数值取小数
@@ -209,23 +220,21 @@ typeof str;       //object
 typeof num;       //object
 typeof flag;      //object
 ```
-js中每一个对象，都是继承自 Object 原型的(除非你手动实现一个不继承自 Object 的对象)，这里我们暂不讨论原型。对于 String(), Number() 和 Boolean() 得到的对象都具有一个名为`[[PrimitiveValue]]
+js中每一个对象，都是继承自 Object 原型的(除非你手动实现一个不继承自 Object.prototype 的对象)，这里我们暂不讨论原型。对于 String(), Number() 和 Boolean() 得到的对象都具有一个名为`[[PrimitiveValue]]
 `的属性，改属性是对象对应的原始值，即基本类型变量。
 
-默认地，每个对象都有一个`toString()`方法和一个`valueOf()`方法，当需要获取对象原始值(`[[PrimitiveValue]]`)时候，调用`valueOf()`方法，需要获取字符串时调用`toString()`方法。
+默认地，每个对象都有一个`toString()`方法和一个`valueOf()`方法，当需要获取对象原始值(`[[PrimitiveValue]]`)时候，调用`valueOf()`方法，需要获取字符串时调用`toString()`方法。系统会在自动类型转换的时候调用他们，所以我们通常不需要手动调用他们。
 
-系统会在自动类型转换的时候调用他们，所以我们通常不需要手动调用他们。在文件引入下面这段 js 可以通过控制台清晰的看的每一次隐式调用(这是准备工作)
-
-隐式类型转换不仅仅适用 `toString()` 和 `valueOf()`，比如基本类型转换为对象依然是使用 `new` 关键字，比如字符串转换为数字，使用 `Number()`。
+隐式类型转换不仅仅使用 `toString()` 和 `valueOf()`，比如基本类型转换为对象依然是使用 `new` 关键字；而基本类型直接互相转换使用其类型对应函数，比如字符串转换为数字，使用 `Number()`。
 
 ## 隐式类型转换(自动类型转换)
 
-由于 js 是个弱类型语言，所以不是所有运算都要去类型一致，Js 为了一些运算可以执行，使用了隐式类型转换。也就是说，在一些计算中，系统会悄悄的完成类型转换，比如以下情况：
+由于 js 是个弱类型语言，所以不是所有运算都要求类型一致，Js 为了一些运算可以执行，使用了隐式类型转换。也就是说，在一些计算中，系统会悄悄的完成类型转换，比如以下情况：
 ```js
 (3.1415926).toFixed(2);      //3.14,  由于数字是基本类型不具备方法，所以自动将其转换为对象类型
 3 + '23';                    //'323'   数值和字符串类型不同，运算时将3转换为字符串
 5 == '5';                    //比较双方类型不同，发生类型转换。
-'a' < 'b';                     //这个更不一样，因为字符串比较实际上是比较其 ASCII 码的大小
+'a' < 'b';                   //这个更不一样，因为字符串比较实际上是比较其 ASCII 码的大小
 ```
 
 ### 数值加法和字符串连接
@@ -236,10 +245,11 @@ console.log({o:1} + "88");                 //[object Object]88
 console.log([5,9] + "88");                 //5,988
 console.log(function(e){return;} + "88");  //function(e){return;}88
 ```
-默认的对象转换为字符串使用了 toString 方法(实际上没这么简单，详细见下文)，而 toString 对于对象而言得到 `[object 构造函数名称]` 这样的一个字符串。而数组和函数重写了对象的 toString 方法，所以数组得到用逗号链接的元素序列字符串；函数得到其源代码字符串。
+默认的对象转换为字符串使用了 toString 方法(实际上没这么简单，详细见下文)，而 toString 对于一般对象而言得到 `[object 构造函数名称]` 这样的一个字符串。而数组和函数重写了对象的 toString 方法，所以数组得到用逗号链接的元素序列字符串；函数得到其源代码字符串。
 不过要注意到，除了加号(+)，其他符号都是默认转换为数值型：
 ```js
 '3' - 1  // -> 2
+'3' == 3 //转换后比较 3 == 3，而不是 '3' == '3'
 ```
 
 但是，不巧的是这里又有例外了：就是 null 和 undefined！！
@@ -314,11 +324,11 @@ console.log(true == '0');         // false
 > - 如果 Type(x) 是对象并且 Type(y) 是字符串、数值或 Symbol , 返回 ToPrimitive(x) == y 的结果;
 > - 返回 __false__;
 
-关于规范中的 ToPrimitive() 用来将对象转换为 __数值__ 或 __字符串__ ，在规范7.1.1节中也有解释，简单来说：
+关于规范中的 ToPrimitive() 用来将对象转换为 __原始值__ 或 __字符串__ ，在规范7.1.1节中也有解释，简单来说：
 
-1. ToPrimitive() 默认将类型转为 Number，但是对象可以通过`@@toPrimitive` 方法重新定义其行为。规范中只有 Date 对象和 Symbol 对象重新定义了该行为，Date 和 对象的 ToPrimitive() 默认得到 String 类型；
-2. 其次，ToPrimitive() 是依赖 对象的 toString() 和 valueOf() 方法的。对象转换为数字时，先调用 `valueOf()` 后调用 `toString()`，转换为字符串时，先调用 `toString()` 后调用 `valueOf()` 方法；
-3. 如果先调用的方法返回了非对象值，则后一个方法不再调用，并返回该值；如果2个方法都不是函数或是返回对象的函数，则抛出TypeError异常。
+1. ToPrimitive() 默认将类型转为原始值，但是对象可以通过`@@toPrimitive` 方法重新定义其行为。规范中只有 Date 对象和 Symbol 重新定义了该行为，Date 和 Symbol 的 ToPrimitive() 默认得到 String 类型；
+2. 其次，ToPrimitive() 是依赖对象的 `toString()` 和 `valueOf()` 方法的。对象转换基本类型时，先调用 `valueOf()`，如果 `valueOf()` 返回的不是基本类型，才调用 `toString()`。
+3. 如果`toString()` 和 `valueOf()`都不是函数或是返回对象的函数，则抛出 TypeError 异常。
 4. 详见[规范](http://www.ecma-international.org/ecma-262/8.0/)第7.1.1 节 OrdinaryToPrimitive
 
 ### 关于 `===` 和 `!==`
@@ -361,7 +371,7 @@ console.log(true == '0');         // false
 > - If Type(x) is Boolean, then
 >   - If x and y are both __true__ or both __false__, return __true__; otherwise, return __false__.
 > - If Type(x) is Symbol, then
-> - If x and y are both the same Symbol value, return __true__; otherwise, return __false__.
+>   - If x and y are both the same Symbol value, return __true__; otherwise, return __false__.
 > - If x and y are the same Object value, return __true__. Otherwise, return __false__.
 
 翻译如下：
@@ -376,7 +386,7 @@ console.log(true == '0');         // false
 > - 如果 Type(x) 是布尔型, 则
 >   - 如果 x 和 y 都是 __true__ 或者都是 __false__，返回 __true__; 否则，返回 __false__;
 > - 如果 Type(x) 是 symbol, 则
-> - 如果 x 和 y 是同一个 Symbol，返回 __true__; 否则，返回 __false__;
+>   - 如果 x 和 y 是同一个 Symbol，返回 __true__; 否则，返回 __false__;
 > - 如果 x 和 y 是同一个对象，返回 __true__; 否则，返回 __false__;
 
 一下翻译了这么多，至少不会感到晕了。js 就是这样比较两个值的，读完这些内容，是不是理解什么:
@@ -484,7 +494,7 @@ console.log(date.toLocaleTimeString()); //上午11:50:51
 
 ### Infinity
 
-关于 Infinity 的数学运算也比较简单，如果学过极限的话很好理解，对于不定式运算(`0 / 0`, `∞ / ∞`, `∞ - ∞`)，返回 NaN:
+关于 Infinity 的数学运算也比较简单，如果学过数学中的极限的话很好理解，对于不定式运算(`0 / 0`, `∞ / ∞`, `∞ - ∞`)，返回 NaN:
 ```js
 console.log(Infinity + Infinity);   //Infinity
 console.log(Infinity - Infinity);   //NaN
@@ -528,6 +538,7 @@ console.log(0.3 === 0.1 + 0.2);        //false
 10000000000000000 + 1   // -> 10000000000000000
 10000000000000000 + 1.1 // -> 10000000000000002
 ```
+
 ### [] 和 {}
 
 有了上面的基础，这个最坑的部分来了
@@ -576,6 +587,44 @@ var {} = [] ;          //(正常执行，仅仅是指针指向从对象改变到
 [] == ![]  //true
 {} == !{}  //false
 ```
+下面这个输入，博主一直很疑惑。把2行代码分别输入到 chrome 控制台，得到对应结果。按规范的逻辑应该输出[object Object]，但这个是为什么呢？
+```js
+console.log({} + []);  //[object Object]
+{}+[];    //0
+```
+原因是第二行中的{}被当做了快作用域，而不是一个对象。
+
+### 数组中的 null 和 undefined
+
+数组中的 null 和 undefined 会在转换为字符串时被看做空，也就是可以直接忽略。
+```js
+"" == [null];                //true
+"1,,3" == [1,undefined,3]    //true
+```
+
+## 大于号和小于号
+
+大于和小于运算的两边都会被转化为数字，但字符串会安其 ASCII 码或 UNICODE 码把每个字符一次比较，得到 Boolean 值。比如：
+```js
+'abc' > 'abd';     //false
+'aBc' > 'abc';     //false
+'093' < '15';      //true
+```
+
+但这里有一个奇怪的例子：
+```js
+var a = {pro: 29};
+var b = {pro: 43};
+
+a < b;     //false
+a == b;    //false
+a > b;     //false
+
+a <= b;    //true
+a >= b;    //true
+```
+
+对于大于(等于)和小于(等于)号，两个对象 a 和 b 都被转换成了字符串 `"[object Object]"`，所以他们应该是相等的，所以 `a < b` 和 `a > b` 都是 false，而 `a <= b` 和 `a > = b` 都是 true。但是 `a == b` 为 false。有了上面的知识，就很好理解这个问题，a, b都是对象，所以不发生类型转换，而两个对象引用不同，结果为 false。
 
 ## ES6 中的类型转换和坑
 
@@ -651,12 +700,13 @@ var obj = new class {
 console.log(obj);   //{},  和 var obj = new class{} 一样
 ```
 
-## 还未解决的问题
+### Symbol
 
-下面这个输入，博主一直很疑惑。把2行代码分别输入到 chrome 控制台，得到对应结果。按规范的逻辑应该输出[object Object]，而第二个暂时还不知道怎么解释
+这个类型转换为字符串必须是显示的，隐式转换会出错
 ```js
-console.log({} + []);  //[object Object]
-{}+[];    //0
+var s = Symbol('aabb');
+String(s);        //"Symbol(aabb)"
+s + "";           //TypeError: Cannot convert a Symbol value to a string
 ```
 
 ## 另一个更好的 typeOf 函数

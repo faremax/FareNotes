@@ -1,11 +1,51 @@
 # Compiled Python files
 *.pyc
-# Folder view configuration files
+
+# Numerous always-ignore extensions
+*.bak
+*.patch
+*.diff
+*.err
+
+# temp file for git conflict merging
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.zip
+*.vi
+*~
+*.sass-cache
+*.tmp.html
+*.dump
+
+# OS or Editor folders
 .DS_Store
-Desktop.ini
-# Thumbnail cache files
 ._*
-Thumbs.db
-# Files that might appear on external disks
 .Spotlight-V100
 .Trash*
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+*.sublime-project
+*.sublime-workspace
+nbproject
+thumbs.db
+*.iml
+Desktop.ini
+
+# Folders to ignore
+.hg
+.svn
+.CVS
+.idea
+node_modules/
+jscoverage_lib/
+bower_components/
+
+# others
+.editorconfig
+.yo-rc.json

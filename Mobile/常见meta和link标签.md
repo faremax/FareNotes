@@ -1,18 +1,25 @@
 <!-- MarkdownTOC -->
 
-- [页面基本设置](#%E9%A1%B5%E9%9D%A2%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE)
-- [http 信息设置](#http-%E4%BF%A1%E6%81%AF%E8%AE%BE%E7%BD%AE)
-- [搜索引擎相关设置](#%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE)
+  - [页面基本设置](#%E9%A1%B5%E9%9D%A2%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE)
+  - [http 信息设置](#http-%E4%BF%A1%E6%81%AF%E8%AE%BE%E7%BD%AE)
+  - [搜索引擎相关设置](#%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE)
 - [移动端开发](#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91)
-  - [移动开发基本设置](#%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE)
-  - [iOS 图标](#ios-%E5%9B%BE%E6%A0%87)
-  - [iOS启动画面](#ios%E5%90%AF%E5%8A%A8%E7%94%BB%E9%9D%A2)
-  - [其他常见设置](#%E5%85%B6%E4%BB%96%E5%B8%B8%E8%A7%81%E8%AE%BE%E7%BD%AE)
+  - [基本设置](#%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE)
+  - [Windows Phone](#windows-phone)
+  - [Android](#android)
+    - [常见设置](#%E5%B8%B8%E8%A7%81%E8%AE%BE%E7%BD%AE)
+  - [iOS 设置](#ios-%E8%AE%BE%E7%BD%AE)
+    - [iOS 图标](#ios-%E5%9B%BE%E6%A0%87)
+    - [iOS启动画面](#ios%E5%90%AF%E5%8A%A8%E7%94%BB%E9%9D%A2)
+    - [一些常见的 JS 代码设置](#%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84-js-%E4%BB%A3%E7%A0%81%E8%AE%BE%E7%BD%AE)
+    - [防止 iOS 表单聚焦时自动缩放](#%E9%98%B2%E6%AD%A2-ios-%E8%A1%A8%E5%8D%95%E8%81%9A%E7%84%A6%E6%97%B6%E8%87%AA%E5%8A%A8%E7%BC%A9%E6%94%BE)
+    - [动态选择预加载界面](#%E5%8A%A8%E6%80%81%E9%80%89%E6%8B%A9%E9%A2%84%E5%8A%A0%E8%BD%BD%E7%95%8C%E9%9D%A2)
 
 <!-- /MarkdownTOC -->
 
 ## 页面基本设置
-```
+
+```html
 <!-- 页面描述 -->
 <meta name="description" content="页面描述，控制在150字以内" />
 <!-- 页面关键词 -->
@@ -24,7 +31,8 @@
 ```
 
 ## http 信息设置
-```
+
+```html
 <!-- 内容语言 -->
 <meta http-equiv="content-language" content="zh-CN" />
 <!-- 自动跳转 -->
@@ -63,7 +71,8 @@
 ```
 
 ## 搜索引擎相关设置
-```
+
+```html
 <!-- 设置搜索引擎抓取间隔 -->
 <meta name="visit-after" content="10 days">
 <!-- 搜索引擎抓取设置 -->
@@ -77,16 +86,19 @@
   all: 等同于 index 和 follow
   ******************************* -->
 ```
-## 移动端开发
 
-### 移动开发基本设置
-```
+# 移动端开发
+
+首先说明，移动开发是大前端开发的一部分，所以以上设置都是支持的。下文仅仅是移动端中特有的：
+
+## 基本设置
+
+```html
 <!-- 声明文档字符编码 -->
 <meta charset="utf-8">
 <!-- IE 兼容性设置 -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" /> <!-- 用最新模式渲染，优先使用 chrome -->
-
-<!-- 为移动设备设置 viewport -->
+<!-- 为移动设备设置 viewport 支持显示优化和响应式布局-->
 <meta name="viewport" content="width=device-width,initial-scale=1, minium-scale=1, user-scalable=no" />
 <!-- iOS 移动设备添加主屏幕标题设置 -->
 <meta name="apple-mobile-web-app-title" content="My App" />
@@ -100,7 +112,29 @@
 <meta name="format-detection" content="email=no" />
 <!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari）, 默认禁用 -->
 <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL" />
+
+<!-- 添加 RSS 订阅 -->
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+<!-- 添加 favicon icon -->
+<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
 ```
+
+## Windows Phone
+
+```html
+<!-- Windows 8 磁贴颜色 -->
+<meta name="msapplication-TileColor" content="#000"/>
+<!-- Windows 8 磁贴图标 -->
+<meta name="msapplication-TileImage" content="icon.png"/>
+```
+
+## Android
+
+### 常见设置
+<!-- Android 启动图标 -->
+<link rel="shortcut icon" sizes="128x128" href="icon.png" />
+
+## iOS 设置
 
 ### iOS 图标
 ```
@@ -121,6 +155,7 @@
 ```
 
 ### iOS启动画面
+
 ```
 <!-- iPad 竖屏 768 x 1004（标准分辨率） -->
 <link rel="apple-touch-startup-image" sizes="768x1004" href="/splash-screen-768x1004.png" />
@@ -138,16 +173,24 @@
 <link rel="apple-touch-startup-image" sizes="640x1136" href="/splash-screen-640x1136.png" />
 ```
 
-### 其他常见设置
+### 一些常见的 JS 代码设置
+
+### 防止 iOS 表单聚焦时自动缩放
+
+```html
+<script type="text/javascript">
+  var $target = $('.unscalable');
+  var $viewport = $('meta[name="viewport"]');
+  $target.bind('focus blur', function(e){
+    $viewport.attr('content', 'width=device-width,initial-scale=1,maximum-scale=' + (e.type == "blur" ? 10 : 1));
+  })
+</script>
 ```
-<!-- Windows 8 磁贴颜色 -->
-<meta name="msapplication-TileColor" content="#000"/>
-<!-- Windows 8 磁贴图标 -->
-<meta name="msapplication-TileImage" content="icon.png"/>
-<!-- Android 启动图标 -->
-<link rel="shortcut icon" sizes="128x128" href="icon.png" />
-<!-- 添加 RSS 订阅 -->
-<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
-<!-- 添加 favicon icon -->
-<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+
+### 动态选择预加载界面
+```html
+<script type="text/javascript">
+   var filename= navigator.platform === 'iPad' ? 'h/' : "l/";
+   document.write(`<link rel="apple-touch-startup-image", href="/img/${filename}splash.png`);
+</script>
 ```
