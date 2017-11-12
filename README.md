@@ -49,6 +49,10 @@
 - [Javascript数据类型与基本运算](https://github.com/faremax1992/FareNotes/blob/master/Javascript/Javascript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97.md)
 - [常用浏览器事件解析](https://github.com/faremax1992/FareNotes/blob/master/Javascript/%E5%B8%B8%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E8%A7%A3%E6%9E%90.md)
 
+## React
+
+- [快速搭建 webpack + react 环境](https://github.com/faremax1992/FareNotes/blob/master/React/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%20webpack%20%2B%20react%20%E7%8E%AF%E5%A2%83.md)
+
 ## Web Development
 
 - [简析chrome调试技巧](https://github.com/faremax1992/repoForBlog/blob/master/Front-End/%E7%AE%80%E6%9E%90chrome%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7.md)
@@ -64,7 +68,7 @@
 
 ## Mobile Development in Front End
 
-- [常见 meta 和 link 标签](https://github.com/faremax1992/repoForBlog/blob/master/Mobile%20Development/%E5%B8%B8%E8%A7%81meta%E5%92%8Clink%E6%A0%87%E7%AD%BE.md)
+- [常见 meta 和 link 标签](https://github.com/faremax1992/FareNotes/blob/master/Mobile/%E5%B8%B8%E8%A7%81meta%E5%92%8Clink%E6%A0%87%E7%AD%BE.md)
 
 ## Exercise on Data Structure and Algorithm
 
